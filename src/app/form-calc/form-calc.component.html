@@ -1,18 +1,22 @@
 <form>
 <input type="number" [(ngModel)]="num1" name="num1"><br>
 
-<select name="Operação" id="Operação">
+<select name="Operação" id="selectedOperation" [(ngModel)]="selectedOperation">
 <option value="Somar"> Soma</option>
 <option value="Dividir"> Dividir</option>
 <option value="Subtrair"> Subtrair</option>
 <option value="Multiplicar"> Multiplicar</option>
 <option value="Potência"> Potência</option>
+<option value="RaizQuadrada"> Raiz Quadrada</option>
 
 </select>
 <br>
 
-<input type="number" [(ngModel)]="num2" name="num2"><br>
+<!-- Logica para que caso a operação selecionada seja raiz, o input do num2 suma, podendo aparecer novamente selecionando 
+outra operação -->
+<input *ngIf="selectedOperation !== 'RaizQuadrada'" type="number" [(ngModel)]="num2" name="num2"><br> 
+
 <button (click)="onClickCalculate()">Calcular</button><br>
-{{Calcular}}
+{{resultado}}
 
 </form>

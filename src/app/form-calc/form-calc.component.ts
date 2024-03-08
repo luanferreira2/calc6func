@@ -9,29 +9,34 @@ export class FormCalcComponent {
 
 num1: number = 0;
 num2: number = 0;
-Calcular: number = 0;
+resultado: number = 0;
 selectedOperation!: string; // A variavel deve ser inicializada, porem o sinal "!" representa que sera definida posteriormente
+
+// Alterando a função para mudar a lógica do calculo de acordo com a opção de operação selecionada
 
 onClickCalculate(){
   switch(this.selectedOperation){
     case 'Somar':
-    this.Calcular = this.num1 + this.num2;
+    this.resultado = this.num1 + this.num2;
     break;
       case 'Dividir':
-      this.Calcular = this.num1/this.num2;
+      this.resultado = this.num1/this.num2;
       break;
         case 'Subtrair':
-        this.Calcular = this.num1 - this.num2;
+        this.resultado = this.num1 - this.num2;
         break;
           case 'Multiplicar':
-          this.Calcular = this.num1 * this.num2;
+          this.resultado = this.num1 * this.num2;
           break;
             case 'Potência':
-            this.Calcular = Math.pow(this.num1,this.num2);
+            this.resultado = Math.pow(this.num1,this.num2);
+            break;
+            case 'RaizQuadrada':
+            this.resultado = Math.sqrt(this.num1);
             break;
             default:
-            this.Calcular = null;
-            break;
+              this.resultado = 0;
+            
     }
   
   }
